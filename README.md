@@ -25,7 +25,7 @@ The end result is similar, regarless of the choice of algorithm. It's a `png` of
 
 After downloading all of the files (you can either do this manually or through a `git pull`), you can build this program by executing the following commands in your command line:
 
-### Windows
+#### Windows
 
 If you're a Windows user, I will assume you have a command-line based `CMake` and a Microsoft Visual Studio C++ Compiler. Once you have those installed, you can run the following commands to build this project:
 
@@ -39,7 +39,7 @@ cmake --build .
 
 The runnable executables are located at `build\debug\maze-generator.exe` and `build\debug\unit-tests.exe`. The latter executable is useful if you would like to verify the unit tests yourself.
 
-### Ubuntu
+#### Ubuntu
 
 If you're an Ubuntu user, I will assume you have a command-line based `CMake` and GNU `g++` installed. In the event that these packages aren't installed, you can install them using:
 
@@ -60,4 +60,59 @@ make
 
 The runnable executables are located at `build/maze-generator` and `build/unit-tests`. The latter executable is useful if you would like to verify the unit tests yourself.
 
-## 
+## Usage
+
+When running this application without any arguments, you'll see the following:
+
+Windows: `maze-generator.exe`
+Ubuntu: `./maze-generator`
+Output:
+
+```
+Usage: ./maze-generator <algorithm> <output_name>
+Usage: ./maze-generator <width> <height> <algorithm> <output_name>
+```
+
+There are several important command line arguments this program needs to accept to generate a maze. Here are the arguments:
+
+- **(Required)**`<algorithm>` determines which algorithm will be used to generate the maze. A list of algorithms this generator supports includes:
+    - `eller`
+    - `ellers`
+    - `tree`
+    - `binary_tree`
+    - `prim`
+    - `prims`
+    - `dfs`
+    - `DFS`
+    - `backtracker`
+    - `kruskal`
+    - `kruskals`
+- **(Required)**`<output_name>` determines the base filename into which this program will output the maze.
+- **(Optional)**`<width>` and `<height>` respectively will set the width and height of the maze. Note that the resolution of the image generated has the dimensions of `2w + 1` by `2h + 1` where `w` and `h` are width and height, respectively. Should you choose not to enter a custom width and height, the default values will make a `w=10` and `h=10` grid (resolution of `21x21`).
+
+Here's an example of how I ran this program to generate a maze using the `Binary Tree` algorithm of size `50x50` and save the **unsolved** maze to `binarymaze.png` and the **solved** maze to `binarymaze_solution.png`:
+
+Windows: `maze-generator.exe 50 50 tree binarymaze`
+Ubuntu: `./maze-generator 50 50 tree binarymaze`
+Output:
+
+```
+Maze Generator with attributes:
+    Width:  101
+    Height: 101
+Printing completed!
+Problem Image: binarymaze.png
+Solution Image: binarymaze_solution.png
+```
+
+## Properties of Mazes
+
+Depending on the algorithm you choose to use, your maze will have certain biases which make them either easier or harder to solve. In particular, the biases include:
+
+- Backtracking: Long, winding passages. Fewer dead ends.
+- Prim's, Kruskal's, and Eller's: A decent balance of dead ends and actual paths. The mazes may feel more erratic in terms of which paths actually feel like dead ends.
+- Binary Tree: Heavy diagonal bias. It's possible to solve a binary tree by only moving right and down. If you imagine the root of this tree as planted on the top-left corner of the map, moving right and down corresponds to traversing a branch of the binary tree.
+
+## For more information...
+
+I made this generator from the algorithms discussed in http://weblog.jamisbuck.org and http://www.jamisbuck.org/presentations/rubyconf2011/index.html. A special thank you to Jamis Buck for a great discussion of these algorithms.
