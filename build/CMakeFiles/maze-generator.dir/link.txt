@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/maze-generator.dir/main.cpp.o CMakeFiles/maze-generator.dir/lodepng.cpp.o  -o maze-generator 
