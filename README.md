@@ -65,7 +65,9 @@ The runnable executables are located at `build/maze-generator` and `build/unit-t
 When running this application without any arguments, you'll see the following:
 
 Windows: `maze-generator.exe`
+
 Ubuntu: `./maze-generator`
+
 Output:
 
 ```
@@ -93,7 +95,9 @@ There are several important command line arguments this program needs to accept 
 Here's an example of how I ran this program to generate a maze using the `Binary Tree` algorithm of size `50x50` and save the **unsolved** maze to `binarymaze.png` and the **solved** maze to `binarymaze_solution.png`:
 
 Windows: `maze-generator.exe 50 50 tree binarymaze`
+
 Ubuntu: `./maze-generator 50 50 tree binarymaze`
+
 Output:
 
 ```
