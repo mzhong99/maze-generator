@@ -11,7 +11,7 @@ This maze generator can be used to generate arbitrary-size square mazes using a 
 - Binary Trees
 - Eller's Algorithm
 
-The end result is similar, regarless of the choice of algorithm. It's a `png` of a maze which you can use for whatever you see fit. Here's some examples of how these mazes look:
+The end result is similar, regardless of the choice of algorithm. It's a `png` of a maze which you can use for whatever you see fit. Here's some examples of how these mazes look:
 
 | Algorithm          | Sample Result                                        | Result With Solution                                          |
 | ------------------ | ---------------------------------------------------- | ------------------------------------------------------------- |
