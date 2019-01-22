@@ -93,7 +93,7 @@ void Maze::generate_using_backtracker() {
 
         for (Point neighbor : neighbors) {
             
-            if (not seen[neighbor.x][neighbor.y]) {
+            if (!seen[neighbor.x][neighbor.y]) {
                 
                 dfs.push(neighbor);
                 build_floor(curr, neighbor);
@@ -147,7 +147,7 @@ void Maze::generate_using_prims() {
         Point p1 = chosen.from;
         Point p2 = chosen.to;
         
-        if (SET_CONTAINS(mst_points, p1.to_string()) and 
+        if (SET_CONTAINS(mst_points, p1.to_string()) && 
             SET_CONTAINS(mst_points, p2.to_string())) {
             continue;
         }
@@ -208,7 +208,7 @@ void Maze::generate_using_ellers() {
             
             Point cursor = Point(x, y);
             
-            if (rand() % 2 == 1 and (not sets.is_joined(cursor, cursor.right()))) {
+            if (rand() % 2 == 1 && (!sets.is_joined(cursor, cursor.right()))) {
                 
                 build_floor(cursor, cursor.right());
                 sets.join(cursor, cursor.right());
@@ -260,7 +260,7 @@ void Maze::generate_using_ellers() {
         
         Point cursor = Point(x, grid.get_height() - 1);
         
-        if (not sets.is_joined(cursor, cursor.right())) {
+        if (!sets.is_joined(cursor, cursor.right())) {
             
             build_floor(cursor, cursor.right());
             sets.join(cursor, cursor.right());
@@ -272,7 +272,7 @@ void Maze::generate_using_ellers() {
 
 void Maze::add_solution() {
     
-    if (not has_valid_solution) {
+    if (!has_valid_solution) {
         throw std::runtime_error("Maze: attempted to solve blank maze");
     }
 
@@ -295,7 +295,7 @@ void Maze::add_solution() {
     
     std::queue<Point> bfs; bfs.push(seed);
     
-    while (not bfs.empty()) {
+    while (!bfs.empty()) {
         
         Point cursor = bfs.front(); bfs.pop();
 
@@ -308,7 +308,7 @@ void Maze::add_solution() {
         adj.push_back(Point(cursor.up()   ));
         
         for (Point neighbor : adj) {
-            if (result[neighbor.x][neighbor.y] == Tile::Floor and
+            if (result[neighbor.x][neighbor.y] == Tile::Floor && 
                 parent[neighbor.x][neighbor.y] == Point(0, 0)) {
                 
                 bfs.push(neighbor);
@@ -323,7 +323,7 @@ void Maze::add_solution() {
 }
 
 Tile Maze::get_tile_at(uint32_t x, uint32_t y) const {
-    if (x >= width or y >= height) {
+    if (x >= width || y >= height) {
         throw std::range_error("Maze: tile access out of range");
     }
     return result[x][y];

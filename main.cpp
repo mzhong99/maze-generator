@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 
     srand(time(NULL));
 
-    if (argc != 3 and argc != 5) {
+    if (argc != 3 && argc != 5) {
         std::cout << "Usage: ./maze_generator <algorithm> <output_name>" << std::endl;
         std::cout << "Usage: ./maze_generator <width> <height>" 
                   << " <algorithm> <output_name>" << std::endl;

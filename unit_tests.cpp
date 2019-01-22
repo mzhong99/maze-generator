@@ -36,7 +36,7 @@ TEST_CASE("Edge, Sorting Test", "Edge") {
     for (int i = 1; i < 25; i++) {
         bool is_less_than = edges[i - 1] < edges[i];
         bool is_equal_to = edges[i - 1] == edges[i];
-        bool is_monotonic = is_less_than or is_equal_to;
+        bool is_monotonic = is_less_than || is_equal_to;
         REQUIRE(is_monotonic);
     }
 
@@ -246,13 +246,13 @@ TEST_CASE("Maze, Default Constructor", "[Maze]") {
     
     for (uint32_t x = 0; x < maze.get_width(); x++) {
         for (uint32_t y = 0; y < maze.get_height(); y++) {
-            if (x == 1 and y == 0) {
+            if (x == 1 && y == 0) {
                 REQUIRE(result[x][y] == Tile::Start);
             }
-            else if (x == maze.get_width() - 2 and y == maze.get_height() - 1) {
+            else if (x == maze.get_width() - 2 && y == maze.get_height() - 1) {
                 REQUIRE(result[x][y] == Tile::End);
             }
-            else if (x % 2 == 1 and y % 2 == 1) {
+            else if (x % 2 == 1 && y % 2 == 1) {
                 REQUIRE(result[x][y] == Tile::Floor);
             }
             else {
@@ -277,13 +277,13 @@ TEST_CASE("Maze, Random Manual Construction", "[Maze]") {
 
         for (uint32_t x = 0; x < maze.get_width(); x++) {
             for (uint32_t y = 0; y < maze.get_height(); y++) {
-                if (x == 1 and y == 0) {
+                if (x == 1 && y == 0) {
                     REQUIRE(result[x][y] == Tile::Start);
                 }
-                else if (x == maze.get_width() - 2 and y == maze.get_height() - 1) {
+                else if (x == maze.get_width() - 2 && y == maze.get_height() - 1) {
                     REQUIRE(result[x][y] == Tile::End);
                 }
-                else if (x % 2 == 1 and y % 2 == 1) {
+                else if (x % 2 == 1 && y % 2 == 1) {
                     REQUIRE(result[x][y] == Tile::Floor);
                 }
                 else {

@@ -1,11 +1,11 @@
 
 bool Grid::preconditions_met() {
-    return width > 0 and height > 0;
+    return width > 0 && height > 0;
 }
 
 void Grid::setup_adjacency() {
     
-    if (not preconditions_met()) {
+    if (!preconditions_met()) {
         throw std::logic_error("Grid: attempting to setup adjacency of zero size grid");
     }
 
@@ -124,7 +124,7 @@ Grid::Grid(uint32_t width, uint32_t height) {
     this->width  = width;
     this->height = height;
 
-    if (not preconditions_met()) {
+    if (!preconditions_met()) {
         this->width  = 10;
         this->height = 10;
     }
@@ -178,7 +178,7 @@ uint32_t Grid::get_height() {
 
 std::vector<Point> Grid::get_neighbors_of(uint32_t x, uint32_t y) {
     
-    if (x >= width or y >= height) {
+    if (x >= width || y >= height) {
         throw std::range_error("Grid: attempted to get neighbors of point out of bounds");
     }
 

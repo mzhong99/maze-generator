@@ -26,7 +26,7 @@ DisjointSets::DisjointSets(uint32_t width, uint32_t height) {
     this->width  = width;
     this->height = height;
     
-    if (width == 0 or height == 0) {
+    if (width == 0 || height == 0) {
         this->width  = 10;
         this->height = 10;
     }
